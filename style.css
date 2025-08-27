@@ -1,0 +1,46 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #000, #001122);
+    color: #0f0;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+#molecule {
+    margin: 30px auto;
+    width: 120px;
+    height: 120px;
+    background: url('game.gif') no-repeat center;
+    background-size: contain;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#molecule:active {
+    transform: scale(0.9);
+}
+
+#submit-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #0f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#submit-btn:disabled {
+    background: #333;
+    cursor: not-allowed;
+}
