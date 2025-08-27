@@ -6,13 +6,11 @@ const scoreDisplay = document.getElementById('score');
 const timerDisplay = document.getElementById('timer');
 const submitBtn = document.getElementById('submit-btn');
 
-// Тап по молекуле
-molecule.addEventListener('click', () => {
+molecule.onclick = () => {
     score++;
     scoreDisplay.textContent = `Счёт: ${score}`;
-});
+};
 
-// Таймер
 const timer = setInterval(() => {
     timeLeft--;
     timerDisplay.textContent = `⏱️ Время: ${timeLeft}`;
@@ -20,16 +18,17 @@ const timer = setInterval(() => {
         clearInterval(timer);
         submitBtn.disabled = false;
         molecule.style.pointerEvents = 'none';
-        submitBtn.onclick = sendResult;
     }
 }, 1000);
 
-// Отправка результата в бота
-function sendResult() {
+submitBtn.onclick = () => {
+    const data = { score: score };
+    console.log("🎮 Отправляю результат:", data);  // 🔥 Проверка в консоли браузера
+
     if (window.Telegram?.WebApp) {
-        Telegram.WebApp.sendData(JSON.stringify({ score: score }));
+        Telegram.WebApp.sendData(JSON.stringify(data));
         Telegram.WebApp.close();
     } else {
-        alert(`Игра завершена! Ваш счёт: ${score}. Вернитесь в бота.`);
+        alert(`Игра завершена! Счёт: ${score}. Вернитесь в бота.`);
     }
-}
+};
