@@ -1,5 +1,5 @@
 let score = 0;
-let timeLeft = 30;
+let timeLeft = 5;
 
 const molecule = document.getElementById('molecule');
 const scoreDisplay = document.getElementById('score');
